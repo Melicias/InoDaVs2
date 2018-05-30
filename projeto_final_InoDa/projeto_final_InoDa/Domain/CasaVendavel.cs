@@ -16,6 +16,7 @@ namespace projeto_final_InoDa
 
         public CasaVendavel()
         {
+
         }
 
     }

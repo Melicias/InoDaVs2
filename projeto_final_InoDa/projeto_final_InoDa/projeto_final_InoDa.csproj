@@ -69,10 +69,12 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Arrendamento.cs" />
     <Compile Include="Domain\Casa.cs" />
     <Compile Include="Domain\CasaArrendavel.cs" />
     <Compile Include="Domain\CasaVendavel.cs" />
     <Compile Include="Domain\Cliente.cs" />
+    <Compile Include="Domain\Venda.cs" />
     <Compile Include="FormArrendamentos.cs">
       <SubType>Form</SubType>
     </Compile>

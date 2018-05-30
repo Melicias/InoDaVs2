@@ -30,7 +30,8 @@ namespace projeto_final_InoDa
 
         private void FormDetalhesCasa_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.formClientes.Show();
+            this.formClientes.Enabled = true;
+            //this.formClientes.Show();
         }
 
         public void initComponents(CasaArrendavel c)

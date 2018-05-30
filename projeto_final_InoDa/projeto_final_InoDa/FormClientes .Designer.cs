@@ -118,14 +118,17 @@
             // 
             this.dataGVClientes.AllowUserToAddRows = false;
             this.dataGVClientes.AllowUserToDeleteRows = false;
+            this.dataGVClientes.AllowUserToResizeRows = false;
             this.dataGVClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGVClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
             this.NIF,
             this.Contacto});
             this.dataGVClientes.Location = new System.Drawing.Point(9, 22);
+            this.dataGVClientes.MultiSelect = false;
             this.dataGVClientes.Name = "dataGVClientes";
             this.dataGVClientes.ReadOnly = true;
+            this.dataGVClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGVClientes.Size = new System.Drawing.Size(344, 509);
             this.dataGVClientes.TabIndex = 4;
             this.dataGVClientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGVClientes_MouseClick);
@@ -216,9 +219,9 @@
             this.lbAquisicoesasd.AutoSize = true;
             this.lbAquisicoesasd.Location = new System.Drawing.Point(10, 428);
             this.lbAquisicoesasd.Name = "lbAquisicoesasd";
-            this.lbAquisicoesasd.Size = new System.Drawing.Size(43, 13);
+            this.lbAquisicoesasd.Size = new System.Drawing.Size(58, 13);
             this.lbAquisicoesasd.TabIndex = 18;
-            this.lbAquisicoesasd.Text = "Vendas";
+            this.lbAquisicoesasd.Text = "Aquisições";
             // 
             // lbArrendamentosasd
             // 

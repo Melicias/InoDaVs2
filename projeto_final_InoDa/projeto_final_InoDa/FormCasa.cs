@@ -25,7 +25,6 @@ namespace projeto_final_InoDa
             dataGVCasas.AutoGenerateColumns = false;
             dataGVCasas.DataSource = mc.Casas.ToList();
 
-            List<Casa> m = mc.Casas.ToList();
 
             this.cbTipo.SelectedIndex = 0;
             this.cbProprietario.DataSource = mc.Clientes.ToArray();
@@ -356,7 +355,8 @@ namespace projeto_final_InoDa
                 Object obj = dataGVCasas.CurrentRow.DataBoundItem;
 
                 Type tipo = obj.GetType();
-                if (tipo.BaseType.Equals(typeof(CasaVendavel)))
+                if (tipo.BaseType == typeof(CasaVendavel) || tipo == typeof(CasaVendavel))
+                    //if (tipo.BaseType.Equals(typeof(CasaVendavel)))
                 {
                     CasaVendavel c = (CasaVendavel)dataGVCasas.CurrentRow.DataBoundItem;
 
@@ -411,19 +411,67 @@ namespace projeto_final_InoDa
                 Object obj = dataGVCasas.CurrentRow.DataBoundItem;
 
                 Type tipo = obj.GetType();
-                if (tipo.BaseType.Equals(typeof(CasaVendavel)))
+                if (tipo.BaseType.Equals(typeof(CasaVendavel)) || tipo == typeof(CasaVendavel))
                 {
                     CasaVendavel c = (CasaVendavel)dataGVCasas.CurrentRow.DataBoundItem;
+
+                    var db = mc.Vendas.Where(v => v.CasaVendavel.IdCasa == c.IdCasa).FirstOrDefault();
+                    if(db != null)
+                    {
+                        mc.Vendas.Remove(db);
+                        mc.SaveChanges();
+                    }
                     mc.Casas.Remove(c);
                 }
                 else
                 {
                     CasaArrendavel c = (CasaArrendavel)dataGVCasas.CurrentRow.DataBoundItem;
+                    var db = mc.Arrendamentos.Where(a => a.CasaArrendavel.IdCasa == c.IdCasa).FirstOrDefault();
+                    while(db != null)
+                    {
+                        mc.Arrendamentos.Remove(db);
+                        mc.SaveChanges();
+                        db = mc.Arrendamentos.Where(a => a.CasaArrendavel.IdCasa == c.IdCasa).FirstOrDefault();
+                    }
+                    mc.SaveChanges();
                     mc.Casas.Remove(c);
+
                 }
                 mc.SaveChanges();
                 dataGVCasas.DataSource = mc.Casas.ToList();
                 cleanTB();
+            }
+        }
+
+        private void btVerCriarArrendamento_Click(object sender, EventArgs e)
+        {
+            if(this.btGuardar.Text == "Guardar")
+            {
+                //ERRO a casa tem de estar inserida primeiro!!!!!!!
+                MessageBox.Show("Primeiro deverá inserir a casa para poder aceder a esta funcionalidade.", "ERRO", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                FormArrendamentos fa = new FormArrendamentos((CasaArrendavel)dataGVCasas.CurrentRow.DataBoundItem,this,this.mc);
+                fa.Show(this);
+                this.Enabled = false;
+                //this.Hide();
+            }
+        }
+
+        private void btVerVenda_Click(object sender, EventArgs e)
+        {
+            if (this.btGuardar.Text == "Guardar")
+            {
+                //ERRO a casa tem de estar inserida primeiro!!!!!!!
+                MessageBox.Show("Primeiro deverá inserir a casa para poder aceder a esta funcionalidade.", "ERRO", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                FormVendaCasa fvc = new FormVendaCasa((CasaVendavel)dataGVCasas.CurrentRow.DataBoundItem, this, this.mc);
+                fvc.Show(this);
+                this.Enabled = false;
+                //this.Hide();
             }
         }
     }

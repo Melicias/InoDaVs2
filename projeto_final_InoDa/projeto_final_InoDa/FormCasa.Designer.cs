@@ -119,6 +119,7 @@
             this.dataGVCasas.Location = new System.Drawing.Point(6, 19);
             this.dataGVCasas.Name = "dataGVCasas";
             this.dataGVCasas.ReadOnly = true;
+            this.dataGVCasas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGVCasas.Size = new System.Drawing.Size(348, 525);
             this.dataGVCasas.TabIndex = 0;
             this.dataGVCasas.Click += new System.EventHandler(this.dataGVCasas_Click);
@@ -334,6 +335,7 @@
             this.btVerVenda.TabIndex = 8;
             this.btVerVenda.Text = "Ver";
             this.btVerVenda.UseVisualStyleBackColor = true;
+            this.btVerVenda.Click += new System.EventHandler(this.btVerVenda_Click);
             // 
             // label18
             // 
@@ -410,6 +412,7 @@
             this.btVerCriarArrendamento.TabIndex = 6;
             this.btVerCriarArrendamento.Text = "Ver/Criar";
             this.btVerCriarArrendamento.UseVisualStyleBackColor = true;
+            this.btVerCriarArrendamento.Click += new System.EventHandler(this.btVerCriarArrendamento_Click);
             // 
             // label15
             // 

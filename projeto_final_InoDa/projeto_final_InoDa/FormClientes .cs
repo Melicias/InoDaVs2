@@ -53,6 +53,9 @@ namespace projeto_final_InoDa
             this.tbNIF.Text = "";
             this.tbMorada.Text = "";
             this.tbContacto.Text = "";
+            this.lbArrendamentos.DataSource = null;
+            this.lbCasas.DataSource = null;
+            this.lbVendas.DataSource = null;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -171,6 +174,7 @@ namespace projeto_final_InoDa
                 this.lbCasas.DataSource = c.Casas.ToList();
                 this.lbArrendamentos.DataSource = c.Arrendamento.ToList();
                 this.lbVendas.DataSource = c.Venda.ToList();
+
             }
         }
 
@@ -179,13 +183,37 @@ namespace projeto_final_InoDa
             if (dataGVClientes.SelectedRows.Count > 0)
             {
                 Cliente c = (Cliente)dataGVClientes.CurrentRow.DataBoundItem;
-                mc.Clientes.Remove(c);
-                mc.SaveChanges();
-                dataGVClientes.AutoGenerateColumns = false;
-                dataGVClientes.DataSource = mc.Clientes.ToList();
-                clearTB();
-                putTBEnabled(false);
-                this.btnGuardar.Text = "Guardar";
+                if (c.Casas.Count <= 0)
+                {
+                    if (c.Arrendamento.Count <= 0)
+                    {
+                        if(c.Venda.Count <= 0)
+                        {
+                            mc.Clientes.Remove(c);
+                            mc.SaveChanges();
+                            dataGVClientes.AutoGenerateColumns = false;
+                            dataGVClientes.DataSource = mc.Clientes.ToList();
+                            clearTB();
+                            putTBEnabled(false);
+                            this.btnGuardar.Text = "Guardar";
+                        }
+                        else
+                        {
+                            //o cliente tem vendas
+                            MessageBox.Show("Tem de apagar as aquisições primeiro!!!!", "ERRO", MessageBoxButtons.OKCancel);
+                        }
+                    }
+                    else
+                    {
+                        //o cliente tem arrendamentos
+                        MessageBox.Show("Tem de apagar os arrendamentos primeiro!!!!", "ERRO", MessageBoxButtons.OKCancel);
+                    }
+                }
+                else
+                {
+                    //o cliente tem casas
+                    MessageBox.Show("Tem de apagar as casas deste cliente primeiro!!!!", "ERRO", MessageBoxButtons.OKCancel);
+                }
             }
         }
 
@@ -244,19 +272,22 @@ namespace projeto_final_InoDa
                 Object obj = this.lbCasas.SelectedItem;
 
                 Type tipo = obj.GetType();
-                if (tipo.BaseType.Equals(typeof(CasaVendavel)))
+                if (tipo.BaseType.Equals(typeof(CasaVendavel)) || tipo == typeof(CasaVendavel))
                 {
                     FormDetalhesCasa form = new FormDetalhesCasa((CasaVendavel)obj,this);
-                    form.Show(); // Show FormClientes
-                    this.Hide();
+                    form.Show(this);
+                    this.Enabled = false;
+                    //this.Hide();
                 }
                 else
                 {
                     FormDetalhesCasa form = new FormDetalhesCasa((CasaArrendavel)obj, this);
-                    form.Show(); // Show FormClientes
-                    this.Hide();
+                    form.Show(this);
+                    this.Enabled = false;
+                    //this.Hide();
                 }
             }
         }
+
     }
 }
