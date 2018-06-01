@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVendaCasa));
             this.lsodfsjn = new System.Windows.Forms.Label();
             this.lbfkjbgd = new System.Windows.Forms.Label();
             this.lbsdfss = new System.Windows.Forms.Label();
@@ -48,9 +49,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbDadosVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupValorComissao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupValorNegociado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lsodfsjn
@@ -279,12 +282,23 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Data da venda:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::projeto_final_InoDa.Properties.Resources.Cash_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(242, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormVendaCasa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(293, 266);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbDadosVenda);
             this.Controls.Add(this.lbComissao);
             this.Controls.Add(this.lbValor);
@@ -294,16 +308,18 @@
             this.Controls.Add(this.lbfkjbgd);
             this.Controls.Add(this.lbsdfss);
             this.Controls.Add(this.lbgdfgdg);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormVendaCasa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormVendaCasa";
+            this.Text = "Venda da Casa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormVendaCasa_FormClosing);
             this.gbDadosVenda.ResumeLayout(false);
             this.gbDadosVenda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupValorComissao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupValorNegociado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +347,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btEfetivarVenda;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

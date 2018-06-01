@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.btGerirClientes = new System.Windows.Forms.Button();
             this.tbPesquisarClientes = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -57,10 +58,12 @@
             this.lbNif = new System.Windows.Forms.Label();
             this.btnApagar = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVClientes)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.gbDetalhes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btGerirClientes
@@ -340,17 +343,29 @@
             this.btnApagar.UseVisualStyleBackColor = true;
             this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::projeto_final_InoDa.Properties.Resources.grab_vector_graphic_person_icon__imagebasket_13;
+            this.pictureBox1.Location = new System.Drawing.Point(578, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(91, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(681, 666);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.gbDetalhes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btGerirClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormClientes";
@@ -363,6 +378,7 @@
             this.groupBox2.ResumeLayout(false);
             this.gbDetalhes.ResumeLayout(false);
             this.gbDetalhes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -397,6 +413,7 @@
         private System.Windows.Forms.ListBox lbVendas;
         private System.Windows.Forms.ListBox lbArrendamentos;
         private System.Windows.Forms.ListBox lbCasas;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

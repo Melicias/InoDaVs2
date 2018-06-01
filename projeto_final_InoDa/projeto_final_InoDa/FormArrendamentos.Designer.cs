@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArrendamentos));
             this.cbArrendatário = new System.Windows.Forms.ComboBox();
             this.lbArrendatário = new System.Windows.Forms.Label();
             this.cbRenovavel = new System.Windows.Forms.CheckBox();
@@ -42,7 +43,9 @@
             this.labelID = new System.Windows.Forms.Label();
             this.labelLocalidade = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupDuração)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbArrendatário
@@ -185,12 +188,23 @@
             this.labelCliente.TabIndex = 26;
             this.labelCliente.Text = "3";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::projeto_final_InoDa.Properties.Resources.family_in__house_icon_70516;
+            this.pictureBox1.Location = new System.Drawing.Point(460, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormArrendamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(556, 333);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.labelLocalidade);
             this.Controls.Add(this.labelID);
@@ -205,13 +219,15 @@
             this.Controls.Add(this.lbCasa);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.btnRemover);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormArrendamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormArrendamentos";
+            this.Text = "Arrendamentos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormArrendamentos_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nupDuração)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +249,6 @@
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label labelLocalidade;
         private System.Windows.Forms.Label labelCliente;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

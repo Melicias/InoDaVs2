@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCasa));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGVCasas = new System.Windows.Forms.DataGridView();
             this.idCasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +85,7 @@
             this.tbLocalidade = new System.Windows.Forms.TextBox();
             this.tbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVCasas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,6 +97,7 @@
             this.gbVendavel.SuspendLayout();
             this.gbArrendamento.SuspendLayout();
             this.gbVendaArrenda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -309,6 +312,7 @@
             this.btGerarLimpezas.TabIndex = 34;
             this.btGerarLimpezas.Text = "Gerir Limpezas";
             this.btGerarLimpezas.UseVisualStyleBackColor = true;
+            this.btGerarLimpezas.Click += new System.EventHandler(this.btGerarLimpezas_Click);
             // 
             // gbVendavel
             // 
@@ -435,6 +439,7 @@
             // tbComissao
             // 
             this.tbComissao.Location = new System.Drawing.Point(11, 80);
+            this.tbComissao.MaxLength = 2;
             this.tbComissao.Name = "tbComissao";
             this.tbComissao.Size = new System.Drawing.Size(100, 20);
             this.tbComissao.TabIndex = 3;
@@ -668,21 +673,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::projeto_final_InoDa.Properties.Resources.house_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(610, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormCasa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(713, 691);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormCasa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCasa";
+            this.Text = "Gerir Casas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCasa_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGVCasas)).EndInit();
@@ -700,6 +717,7 @@
             this.gbArrendamento.PerformLayout();
             this.gbVendaArrenda.ResumeLayout(false);
             this.gbVendaArrenda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,5 +780,6 @@
         private System.Windows.Forms.NumericUpDown tbPisos;
         private System.Windows.Forms.NumericUpDown tbArea;
         private System.Windows.Forms.TextBox tbNumero;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

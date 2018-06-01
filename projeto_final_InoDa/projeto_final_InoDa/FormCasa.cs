@@ -87,7 +87,7 @@ namespace projeto_final_InoDa
                 }
                 catch (FormatException)
                 {
-                    //contacto tem letras
+                    //erro na conversao
                     MessageBox.Show("Erro na conversão de algo!", "ERRO", MessageBoxButtons.OKCancel);
                 }
             }
@@ -130,8 +130,9 @@ namespace projeto_final_InoDa
             this.rbVendavel.Checked = false;
             this.gbVendaArrenda.Enabled = true;
             this.cbProprietario.Enabled = true;
+            this.btGerarLimpezas.Text = "Gerir Limpezas";
         }
-
+        
         private void rbArrendavel_CheckedChanged(object sender, EventArgs e)
         {
             if (this.rbArrendavel.Checked)
@@ -318,7 +319,7 @@ namespace projeto_final_InoDa
                             else
                             {
                                 //cb de proprietarios vazio
-                                MessageBox.Show("O contacto tem letras", "ERRO", MessageBoxButtons.OKCancel);
+                                MessageBox.Show("Necessita de selecionar um cliente", "ERRO", MessageBoxButtons.OKCancel);
                             }
                         }
                         else
@@ -376,6 +377,8 @@ namespace projeto_final_InoDa
                     this.tbPisos.Value = c.NumeroPisos;
                     this.cbTipo.SelectedItem = c.Tipo;
                     this.cbProprietario.SelectedItem = c.Proprietario;
+                    this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
+                    this.btGerarLimpezas.Enabled = true;
                 }
                 else
                 {
@@ -397,6 +400,8 @@ namespace projeto_final_InoDa
                     this.tbPisos.Value = c.NumeroPisos;
                     this.cbTipo.SelectedItem = c.Tipo;
                     this.cbProprietario.SelectedItem = c.Proprietario;
+                    this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
+                    this.btGerarLimpezas.Enabled = true;
                 }
                 this.gbVendaArrenda.Enabled = false;
                 this.cbProprietario.Enabled = false;
@@ -472,6 +477,49 @@ namespace projeto_final_InoDa
                 fvc.Show(this);
                 this.Enabled = false;
                 //this.Hide();
+            }
+        }
+
+        private void btGerarLimpezas_Click(object sender, EventArgs e)
+        {
+            if (this.btGuardar.Text == "Guardar")
+            {
+                //ERRO a casa tem de estar inserida primeiro!!!!!!!
+                MessageBox.Show("Primeiro deverá inserir a casa para poder aceder a esta funcionalidade.", "ERRO", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                if (this.rbVendavel.Checked)
+                {
+                    FormLimpezas fl = new FormLimpezas((CasaVendavel)dataGVCasas.CurrentRow.DataBoundItem, this, this.mc);
+                    fl.Show(this);
+                    this.Enabled = false;
+                }
+                else
+                {
+                    FormLimpezas fl = new FormLimpezas((CasaArrendavel)dataGVCasas.CurrentRow.DataBoundItem, this, this.mc);
+                    fl.Show(this);
+                    this.Enabled = false;
+                }
+            }
+            
+        }
+
+        public void loadGerirLimpezasButton()
+        {
+            Object obj = dataGVCasas.CurrentRow.DataBoundItem;
+
+            Type tipo = obj.GetType();
+            if (tipo.BaseType == typeof(CasaVendavel) || tipo == typeof(CasaVendavel))
+            //if (tipo.BaseType.Equals(typeof(CasaVendavel)))
+            {
+                CasaVendavel c = (CasaVendavel)dataGVCasas.CurrentRow.DataBoundItem;
+                this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
+            }
+            else
+            {
+                CasaArrendavel c = (CasaArrendavel)dataGVCasas.CurrentRow.DataBoundItem;
+                this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
             }
         }
     }

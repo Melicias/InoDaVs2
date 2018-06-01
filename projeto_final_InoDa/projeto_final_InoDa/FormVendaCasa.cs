@@ -62,6 +62,7 @@ namespace projeto_final_InoDa
                 this.casa.Proprietario = (Cliente)this.cbComprador.SelectedItem;
                 mc.SaveChanges();
                 this.gbDadosVenda.Enabled = false;
+                this.lbProprietario.Text = casa.Proprietario.ToString();
             }
         }
 

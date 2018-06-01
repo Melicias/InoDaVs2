@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalhesCasa));
             this.gbDetalhesCasa = new System.Windows.Forms.GroupBox();
             this.tbAssoalhadas = new System.Windows.Forms.NumericUpDown();
             this.tbWc = new System.Windows.Forms.NumericUpDown();
@@ -290,11 +291,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(347, 307);
             this.Controls.Add(this.gbDetalhesCasa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDetalhesCasa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDetalhesCasa";
+            this.Text = "Detalhes da Casa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDetalhesCasa_FormClosing);
             this.gbDetalhesCasa.ResumeLayout(false);
             this.gbDetalhesCasa.PerformLayout();

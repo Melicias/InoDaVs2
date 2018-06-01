@@ -74,6 +74,8 @@
     <Compile Include="Domain\CasaArrendavel.cs" />
     <Compile Include="Domain\CasaVendavel.cs" />
     <Compile Include="Domain\Cliente.cs" />
+    <Compile Include="Domain\Limpeza.cs" />
+    <Compile Include="Domain\Servico.cs" />
     <Compile Include="Domain\Venda.cs" />
     <Compile Include="FormArrendamentos.cs">
       <SubType>Form</SubType>
@@ -172,6 +174,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -195,6 +198,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\687474703a2f2f692e696d6775722e636f6d2f48656c687441782e706e67.ico" />
+    <Content Include="img\687474703a2f2f692e696d6775722e636f6d2f48656c687441782e706e67.png" />
+    <Content Include="img\Cash-icon.ico" />
+    <Content Include="img\Cash-icon.png" />
+    <Content Include="img\family-in--house-icon-70516.ico" />
+    <Content Include="img\family-in--house-icon-70516.png" />
+    <Content Include="img\grab-vector-graphic-person-icon--imagebasket-13.ico" />
+    <Content Include="img\grab-vector-graphic-person-icon--imagebasket-13.png" />
+    <Content Include="img\house-icon.ico" />
+    <Content Include="img\house-icon.png" />
+    <Content Include="img\Icons-Land-Vista-People-Person-Male-Light.ico" />
+    <Content Include="img\transferir.ico" />
+    <Content Include="img\transferir.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
