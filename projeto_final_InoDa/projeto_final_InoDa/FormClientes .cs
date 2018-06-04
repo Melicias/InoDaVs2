@@ -24,10 +24,13 @@ namespace projeto_final_InoDa
 
             dataGVClientes.AutoGenerateColumns = false;
             dataGVClientes.DataSource = mc.Clientes.ToList();
+
+            
         }
 
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //when closing this form , it will show the other form
             this.formInicial.Show();
         }
 
@@ -36,8 +39,11 @@ namespace projeto_final_InoDa
             putTBEnabled(true);
             clearTB();
             this.btnGuardar.Text = "Guardar";
+            if(dataGVClientes.Rows.Count != 0)
+                dataGVClientes.CurrentCell.Selected = false;
         }
 
+        //put enabled true or false this fields
         private void putTBEnabled(Boolean b)
         {
             this.tbNome.Enabled = b;
@@ -47,6 +53,7 @@ namespace projeto_final_InoDa
             this.btnGuardar.Enabled = b;
         }
 
+        //reset all textBox
         private void clearTB()
         {
             this.tbNome.Text = "";
@@ -72,6 +79,7 @@ namespace projeto_final_InoDa
                     dataGVClientes.DataSource = mc.Clientes.ToList();
                     clearTB();
                     putTBEnabled(false);
+                    dataGVClientes.CurrentCell.Selected = false;
                 }
                 
             }
@@ -92,6 +100,7 @@ namespace projeto_final_InoDa
                     clearTB();
                     putTBEnabled(false);
                     this.btnGuardar.Text = "Guardar";
+                    dataGVClientes.CurrentCell.Selected = false;
                 }
             }
         }
@@ -289,5 +298,10 @@ namespace projeto_final_InoDa
             }
         }
 
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            if(dataGVClientes.Rows.Count != 0)
+                dataGVClientes.CurrentCell.Selected = false;
+        }
     }
 }

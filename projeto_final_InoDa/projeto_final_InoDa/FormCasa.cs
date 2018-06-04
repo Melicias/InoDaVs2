@@ -25,6 +25,7 @@ namespace projeto_final_InoDa
             dataGVCasas.AutoGenerateColumns = false;
             dataGVCasas.DataSource = mc.Casas.ToList();
 
+            this.dataGVCasas.ClearSelection();
 
             this.cbTipo.SelectedIndex = 0;
             this.cbProprietario.DataSource = mc.Clientes.ToArray();
@@ -102,6 +103,8 @@ namespace projeto_final_InoDa
             cleanTB();
             this.btGuardar.Text = "Guardar";
             this.btGuardar.Enabled = true;
+            if (dataGVCasas.Rows.Count != 0)
+                dataGVCasas.CurrentCell.Selected = false;
 
         }
 
@@ -130,7 +133,8 @@ namespace projeto_final_InoDa
             this.rbVendavel.Checked = false;
             this.gbVendaArrenda.Enabled = true;
             this.cbProprietario.Enabled = true;
-            this.btGerarLimpezas.Text = "Gerir Limpezas";
+            this.btVerCriarArrendamento.Enabled = false;
+            this.btVerVenda.Enabled = false;
         }
         
         private void rbArrendavel_CheckedChanged(object sender, EventArgs e)
@@ -186,6 +190,9 @@ namespace projeto_final_InoDa
                     mc.SaveChanges();
                     dataGVCasas.DataSource = mc.Casas.ToList();
                     cleanTB();
+                    if (dataGVCasas.Rows.Count != 0)
+                        dataGVCasas.CurrentCell.Selected = false;
+
                 }
             }
             else
@@ -231,6 +238,8 @@ namespace projeto_final_InoDa
                     mc.SaveChanges();
                     dataGVCasas.DataSource = mc.Casas.ToList();
                     cleanTB();
+                    if (dataGVCasas.Rows.Count != 0)
+                        dataGVCasas.CurrentCell.Selected = false;
                 }
             }
         }
@@ -379,6 +388,7 @@ namespace projeto_final_InoDa
                     this.cbProprietario.SelectedItem = c.Proprietario;
                     this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
                     this.btGerarLimpezas.Enabled = true;
+                    this.btVerVenda.Enabled = true;
                 }
                 else
                 {
@@ -402,6 +412,7 @@ namespace projeto_final_InoDa
                     this.cbProprietario.SelectedItem = c.Proprietario;
                     this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
                     this.btGerarLimpezas.Enabled = true;
+                    this.btVerCriarArrendamento.Enabled = true;
                 }
                 this.gbVendaArrenda.Enabled = false;
                 this.cbProprietario.Enabled = false;
@@ -521,6 +532,12 @@ namespace projeto_final_InoDa
                 CasaArrendavel c = (CasaArrendavel)dataGVCasas.CurrentRow.DataBoundItem;
                 this.btGerarLimpezas.Text = "Gerir Limpezas (Total:" + c.Limpeza.ToList().Count + ")";
             }
+        }
+
+        private void FormCasa_Load(object sender, EventArgs e)
+        {
+            if (dataGVCasas.Rows.Count != 0)
+                dataGVCasas.CurrentCell.Selected = false;
         }
     }
 }
