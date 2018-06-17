@@ -661,7 +661,7 @@
             this.tbId.Enabled = false;
             this.tbId.Location = new System.Drawing.Point(31, 20);
             this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(26, 20);
+            this.tbId.Size = new System.Drawing.Size(54, 20);
             this.tbId.TabIndex = 1;
             // 
             // label1
